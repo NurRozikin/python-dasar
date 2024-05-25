@@ -284,72 +284,105 @@ def latihanKomparasiDanLogika():
   hasilKurangDariAtauLebihDari = hasilKurangDari or hasilLebihDari
   print("Hasil inputUser < 3 atau > 10 = ", hasilKurangDariAtauLebihDari, "\n")
 
+  # -----3++++++10-------
+  inputUser = int(
+      input(
+          "Masukan angka yang bernilai \n lebih dari 3 \n dan kurang dari 10 : "
+      ))
 
-# -----3++++++10-------
-inputUser = int(
-    input(
-        "Masukan angka yang bernilai \n lebih dari 3 \n dan kurang dari 10 : ")
-)
+  # memeriksa apakah angka yang dimasukkan lebih dari 3
+  hasilLebihDari = inputUser > 3
+  print("Hasil inputUser > 3 = ", hasilLebihDari)
 
-# memeriksa apakah angka yang dimasukkan lebih dari 3
-hasilLebihDari = inputUser > 3
-print("Hasil inputUser > 3 = ", hasilLebihDari)
+  # memeriksa apakah angka yang dimasukkan kurang dari 10
+  hasilKurangDari = inputUser < 10
+  print("Hasil inputUser < 10 = ", hasilKurangDari)
 
-# memeriksa apakah angka yang dimasukkan kurang dari 10
-hasilKurangDari = inputUser < 10
-print("Hasil inputUser < 10 = ", hasilKurangDari)
+  # memeriksa apakah angka yang dimasukkan lebih dari 3 dan kurang dari 10
+  hasilLebihDariDanKurangDari = hasilLebihDari and hasilKurangDari
+  print("Hasil inputUser > 3 dan < 10 = ", hasilLebihDariDanKurangDari, "\n")
 
-# memeriksa apakah angka yang dimasukkan lebih dari 3 dan kurang dari 10
-hasilLebihDariDanKurangDari = hasilLebihDari and hasilKurangDari
-print("Hasil inputUser > 3 dan < 10 = ", hasilLebihDariDanKurangDari, "\n")
+  # ----- 0 +++++ 5 ------- 8 ++++++ 11 ------
 
-# ----- 0 +++++ 5 ------- 8 ++++++ 11 ------
+  inputUser = int(
+      input(
+          "Masukan angka yang bernilai \n lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11 : "
+      ))
 
-inputUser = int(
-    input(
-        "Masukan angka yang bernilai \n lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11 : "
-    ))
+  # memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5
+  hasilLebihDari0 = inputUser > 0 and inputUser < 5
+  print("Hasil inputUser > 0 dan < 5 = ", hasilLebihDari0)
+  # memeriksa apakah angka yang dimasukkan lebih dari 8 dan kurang dari 11
+  hasilLebihDari8 = inputUser > 8 and inputUser < 11
+  print("Hasil inputUser > 8 dan < 11 = ", hasilLebihDari8)
 
-# memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5
-hasilLebihDari0 = inputUser > 0 and inputUser < 5
-print("Hasil inputUser > 0 dan < 5 = ", hasilLebihDari0)
-# memeriksa apakah angka yang dimasukkan lebih dari 8 dan kurang dari 11
-hasilLebihDari8 = inputUser > 8 and inputUser < 11
-print("Hasil inputUser > 8 dan < 11 = ", hasilLebihDari8)
+  # memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11
+  hasil = hasilLebihDari0 or hasilLebihDari8
+  print("Hasil inputUser > 0 dan < 5 atau > 8 dan < 11 = ", hasil, "\n")
 
-# memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11
-hasil = hasilLebihDari0 or hasilLebihDari8
-print("Hasil inputUser > 0 dan < 5 atau > 8 dan < 11 = ", hasil, "\n")
+  # +++++ 0 ----- 5 +++++++ 8 ------ 11 ++++++
+  inputUser = int(
+      input(
+          "Masukan angka yang bernilai \n kurang dari 0 atau lebih dari 5 dan kurang dari 8 atau lebih dari 11 : "
+      ))
+  # memeriksa apakah angka yang dimasukkan kurang dari 0
+  hasilKurangDari0 = inputUser < 0
+  print("Hasil inputUser < 0 = ", hasilKurangDari0)
+  # memeriksa apakah angka yang dimasukkan lebih dari 5 and kurang dari 8
+  hasilLebihDari5 = inputUser > 5 and inputUser < 8
+  print("Hasil inputUser > 5 dan < 8 = ", hasilLebihDari5)
+  # memeriksa apakah angka yang dimasukkan lebih dari 11
+  hasilLebihDari11 = inputUser > 11
+  print("Hasil inputUser > 11 = ", hasilLebihDari11)
+  # hasilnya
+  hasil = hasilKurangDari0 or hasilLebihDari5 or hasilLebihDari11
+  print("Hasil inputUser < 0 atau > 5 dan < 8 atau > 11 = ", hasil, "\n")
 
-# +++++ 0 ----- 5 +++++++ 8 ------ 11 ++++++
-inputUser = int(
-    input(
-        "Masukan angka yang bernilai \n kurang dari 0 atau lebih dari 5 dan kurang dari 8 atau lebih dari 11 : "
-    ))
-# memeriksa apakah angka yang dimasukkan kurang dari 0
-hasilKurangDari0 = inputUser < 0
-print("Hasil inputUser < 0 = ", hasilKurangDari0)
-# memeriksa apakah angka yang dimasukkan lebih dari 5 and kurang dari 8
-hasilLebihDari5 = inputUser > 5 and inputUser < 8
-print("Hasil inputUser > 5 dan < 8 = ", hasilLebihDari5)
-# memeriksa apakah angka yang dimasukkan lebih dari 11
-hasilLebihDari11 = inputUser > 11
-print("Hasil inputUser > 11 = ", hasilLebihDari11)
-# hasilnya
-hasil = hasilKurangDari0 or hasilLebihDari5 or hasilLebihDari11
-print("Hasil inputUser < 0 atau > 5 dan < 8 atau > 11 = ", hasil, "\n")
+  # memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5
+  hasilLebihDari0 = inputUser > 0 and inputUser < 5
+  print("Hasil inputUser > 0 dan < 5 = ", hasilLebihDari0)
+  # memeriksa apakah angka yang dimasukkan lebih dari 8 dan kurang dari 11
+  hasilLebihDari8 = inputUser > 8 and inputUser < 11
+  print("Hasil inputUser > 8 dan < 11 = ", hasilLebihDari8)
 
-# memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5
-hasilLebihDari0 = inputUser > 0 and inputUser < 5
-print("Hasil inputUser > 0 dan < 5 = ", hasilLebihDari0)
-# memeriksa apakah angka yang dimasukkan lebih dari 8 dan kurang dari 11
-hasilLebihDari8 = inputUser > 8 and inputUser < 11
-print("Hasil inputUser > 8 dan < 11 = ", hasilLebihDari8)
+  # memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11
+  hasil = hasilLebihDari0 or hasilLebihDari8
+  print("Hasil inputUser > 0 dan < 5 atau > 8 dan < 11 = ", hasil, "\n")
 
-# memeriksa apakah angka yang dimasukkan lebih dari 0 dan kurang dari 5 atau lebih dari 8 dan kurang dari 11
-hasil = hasilLebihDari0 or hasilLebihDari8
-print("Hasil inputUser > 0 dan < 5 atau > 8 dan < 11 = ", hasil, "\n")
 
+def episodeOperatorBitwise():
+  # Operator Bitwise adalah operator yang digunakan untuk melakukan operasi pada bit / binary digit
+  # contoh :
+  # 00000011 -> 2**1 + 2**0 = 3
+  # 00000101 -> 2**2 + 2**0 = 5
+
+  # 00000111 -> 2**2 + 2**1 + 2**0 = 7  Klo OR
+  # 00000001 -> 2**0 = 1 klo AND
+  # 00000110 -> 2**2 + 2**1 = 6 klo XOR
+  a = 3
+  b = 5
+  print(format(a, '08b'))
+  print(format(b, '08b'))
+
+  print("a & b : ", a & b)
+  print("a | b : ", a | b)
+  print("a ^ b : ", a ^ b)
+  c = ~a
+  print("nilai a : ", a, " binary : ", format(a, '08b'))
+  print("nilai ~a : ", c, " binary : ", format(c, '08b'))
+
+  #shifting / geser
+  #geser ke kanan (>>)
+  c = a >> 2
+  print("nilai a : ", a, " binary : ", format(a, '08b'))
+  print("nilai c : ", c, " binary : ", format(c, '08b'))
+
+  #geser ke kiri (<<)
+  c = a << 2
+  print("nilai a : ", a, " binary : ", format(a, '08b'))
+  print("nilai c : ", c, " binary : ", format(c, '08b'))
+
+def episodeOperatorAssignment() :
 
 def main():
   # print("Hello World")
@@ -377,8 +410,14 @@ def main():
   #print("\nEpisode Operasi Logika --> \n")
   #episodeOperasiLogika()
 
-  print("\nEpisode Latihan logika dan komparasi --> \n")
-  latihanKomparasiDanLogika()
+  #print("\nEpisode Latihan logika dan komparasi --> \n")
+  #latihanKomparasiDanLogika()
+
+  #print("\nEpisode Operator Bitwise --> \n")
+  #episodeOperatorBitwise()
+
+  print("\nEpisode Operator Assignment --> \n")
+  episodeOperatorAssignment()
 
 
 #reverse_data("Hello")
