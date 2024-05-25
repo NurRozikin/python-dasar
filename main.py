@@ -35,6 +35,43 @@ def main():
   # assignment indirect
   b = a
   print("Nilai b = ", b)
+
+  # Episode type data
+  # integer / angka satuan yang tidak ada koma
+  nilai_int = 10
+  print("nilai int = ", nilai_int)
+
+  # float / angka yang ada koma
+  nilai_float = 1.5
+  print("nilai float = ", nilai_float)
+
+  # string / kumpulan karakter
+  nama = "Ahmad"
+  print("Nama = ", nama)
+
+  # boolean / True / False
+  nilai_boolean = True
+  print("Nilai boolean = ", nilai_boolean)
+
+  # complex / bilangan kompleks
+  nilai_complex = complex(2, 3)
+  print(nilai_complex)
+
+  # tipe data dari bahasa c
+  from ctypes import c_double
+
+  data_c_double = c_double(2.5)
+  print("Nilai dari data c_double = ", data_c_double)
+
+  # Episode casting tipe data / merubah tipe data
+  nilai_int = int(10.5)
+  print("Nilai int = ", nilai_int)
+
+  nilai_float = float(10)
+  print("Nilai float = ", nilai_float)
+  nilai_boolean = bool(0)
+  print("Nilai boolean = ", nilai_boolean)
+
   # Episode input data
 
   # data yg dimasukkan pasti string
@@ -52,7 +89,8 @@ def main():
   # jika kita ingin mengambil boolean, maka
   boolValue = bool(int(input("Masukan boolean : ")))
   print("boolean = ", boolValue, ", type = ", type(boolValue))
-  reverse_data("Hello")
+
+  #reverse_data("Hello")
 
 
 if __name__ == "__main__":
