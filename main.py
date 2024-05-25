@@ -79,19 +79,78 @@ def main():
   print("data = ", data, ", type = ", type(data))
 
   # jika kita ingin mengambil int, maka
-  angka = int(input("Masukan angka: "))
-  print("angka = ", angka, ", type = ", type(angka))
+  try:
+    angka = int(input("Masukan angka: "))
+    print("angka = ", angka, ", type = ", type(angka))
+  except ValueError as e:
+    print(e)
 
   # jika kita ingin mengambil float, maka
-  angkafloat = float(input("Masukan angka float : "))
-  print("angka float = ", angkafloat, ", type = ", type(angkafloat))
+  try:
+    angkafloat = float(input("Masukan angka float : "))
+    print("angka float = ", angkafloat, ", type = ", type(angkafloat))
+  except ValueError as e:
+    print(e)
 
   # jika kita ingin mengambil boolean, maka
   boolValue = bool(int(input("Masukan boolean : ")))
   print("boolean = ", boolValue, ", type = ", type(boolValue))
 
-  #reverse_data("Hello")
+  # Episode Operasi Aritmatika
+  # Penjumlahan
+  hasil = a + b
+  print("Hasil = ", hasil)
 
+  # Pengurangan
+  hasil = a - b
+  print("Hasil = ", hasil)
+
+  # Perkalian
+  hasil = a * b
+  print("Hasil = ", hasil)
+
+  # Pembagian
+  hasil = a / b
+  print("Hasil Pembagian = ", hasil)
+
+  # Pangkat
+  hasil = a**b
+  print("Hasil Pangkat = ", hasil)
+
+  # Modulus / sisa bagi
+  hasil = a % b
+  print("Hasil Modulus = ", hasil)
+
+  # Floor Division / pembagian bulat
+  hasil = a // b
+  print("Hasil Floor Division = ", hasil)
+
+  # Prioritas Operasi / yang mana di dahulukan
+  '''
+    Urutan :
+    1. ()
+    2. pangkat / exponen : **
+    3. perkalian / pembagian / modulus / floor division : * / % //
+    4. perjumlahan / pengurangan : + -
+  '''
+
+  x = 3
+  y = 2
+  z = 4
+  hasil = x**y * z + x / y - y % z // x
+  print("Hasil ", x, '**', y, '*', z, '+', x, '/', y, '-', y, '%', z, '//', x,
+        " = ", hasil)
+
+  hasil = x**y * (z + x) / y - y % z // x
+  print("Hasil ", x, '**', y, '* (', z, '+', x, ') /', y, '-', y, '%', z, '//',
+        x, " = ", hasil)
+  hasil = x + y * z
+  print("Hasil ", x, ' + ', y, ' * ', z, " = ", hasil)
+  hasil = (x + y) * z
+  print("Hasil (", x, ' + ', y, ') * ', z, " = ", hasil)
+
+
+#reverse_data("Hello")
 
 if __name__ == "__main__":
   main()
