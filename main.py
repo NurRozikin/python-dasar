@@ -1,8 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
-
 def reverse_data(data):
   if len(data) <= 5:
     print(data[::-1])
@@ -382,10 +377,285 @@ def episodeOperatorBitwise():
   print("nilai a : ", a, " binary : ", format(a, '08b'))
   print("nilai c : ", c, " binary : ", format(c, '08b'))
 
-def episodeOperatorAssignment() :
+
+def episodeOperatorAssignment():
+  # operasi yg dapat dilakukan dengan penyingkatan
+  # operasi ditambah dengan assignment
+  a = 5  # adalah assignment
+  print("Nilai a = ", a)
+
+  a += 1  # adalah a = a + 1
+  print("Nilai a += 1 : ", a)
+
+  a -= 2  # adalah a = a - 2
+  print("Nilai a -= 2 : ", a)
+
+  a *= 5  # adalah a = a * 5
+  print("Nilai a *= 5 : ", a)
+
+  a /= 2  # adalah a = a / 2
+  print("Nilai a /= 2 : ", a)
+
+  b = a
+  b %= 3  # adalah b = b % 3
+  print("Nilai b %= 3 : ", b)
+
+  b = a
+  b //= 3  # adalah b = b // 3
+  print("Nilai b //= 3 : ", b)
+
+  b = 5
+  b **= 3  # adalah b = b ** 3
+  print("Nilai b **= 3 : ", b)
+
+  # operasi bitwise
+  c = True
+  print("Nilai c : ", c)
+
+  # AND
+  c &= False  # adalah c = c & False
+  print("c &= False : ", c)
+
+  # OR
+  c = True
+  c != False  # adalah c = c ! False
+  print("c != False : ", c)
+
+  # XOR
+  c = True
+  c ^= False  # adalah c = c ^ False
+  print("c ^= False : ", c)
+
+  c = 0b0100
+  print("Nilai c : ", format(c, '04b'))
+  c >>= 2
+  print("Nilai c >>= 2 : ", format(c, '04b'))
+  c <<= 1
+  print("Nilai c <<= 1 : ", format(c, '04b'))
+
+
+def episodePengenalanString():
+  data = "ini adalah string"
+  print(data)
+  print(type(data))
+
+  # 1. cara membuat string
+
+  # dengan menggunakan petik satu
+  print('menggunakan single quote')
+
+  # dengan menggunakan petik dua
+  print("menggunakan double quote")
+
+  # menggabungkan " dan '
+  print('"Halo, apa kabar?"')
+  print("'Halo, apa kabar?'")
+  print("ini adalah hari jum'at")
+
+  # dengan menggunakan tanda \
+  print('mari shalat jum\'at')
+  print('g\'day, isn\'t it ?')
+
+  # backslash
+  print("C:\\user\\Ucup")
+
+  # tab
+  print("ucup\t\totong, semakin jauhan")
+
+  # backspace
+  print("ucup \botong, jadi deketan")
+
+  # newline
+  print("baris pertama.\nbaris kedua.")  # LF -> line feed
+  print("baris pertama.\rbaris kedua.")  # CR -> carriage return
+  print("baris pertama.\r\nbaris kedua.")  # CRLF -> line feed carriage return
+
+  # raw string
+  print(r"C:\new folder")  # raw string
+
+  # dengan menggunakan petik tiga / literal string
+  print('''
+  menggunakan petik tiga
+  Nama : Ucup
+  Kelas : 3 SD
+  ''')
+  # multiline literal string dan Raw
+  print(r'''
+  menggunakan petik tiga dan raw
+  Nama : Ucup
+  Kelas : 3 SD
+  Website : www.ucup.com/newID
+  ''')
+
+
+def episodeOperasidanManipulasiString():
+  # menghitung panjang string
+  data = "Ini Adalah String"
+  print("panjang string : ", len(data))
+
+  # mengambil substring
+  print("data[0:5] : ", data[0:5])
+  print("data[:5] : ", data[:5])
+  print("data[5:] : ", data[5:])
+  print("data[:] : ", data[:])
+  print("data[1] : ", data[1])
+  print("data[-1] : ", data[-1])
+  print("data[3:7] : ", data[3:7])
+  print("data[0:len(data):2] : ", data[0:len(data):2])
+  print("reversing data : ", data[::-1])
+
+  # mengubah string menjadi huruf besar
+  print("data.upper() : ", data.upper())
+
+  # mengubah string menjadi huruf kecil
+  print("data.lower() : ", data.lower())
+
+  # mengganti string
+  print("data.replace('a', 'b') : ", data.replace('a', 'b'))
+
+  # menggabungkan string
+  print("data + ' ini adalah string' : ", data + ' ini adalah string')
+
+  # menggecek apakah ada karakter di string
+  print("data.find('a') : ", data.find('a'))
+  print("d" in data)
+  print("d" not in data)
+
+  # mengecek apakah lower case
+  print("apakah lower case : ", data.islower())
+
+  # mengecek apakah upper case
+  print("apakah upper case : ", data.isupper())
+
+  # mengecek apakah huruf
+  print("apakah huruf : ", data.isalpha())
+
+  # mengecek apakah angka
+  print("apakah angka : ", data.isdigit())
+
+  # mengecek apakah huruf dan angka
+  print("apakah huruf dan angka : ", data.isalnum())
+
+  # mengecek spasi, tab and newline
+  print("apakah spasi, tab dan newline : ", data.isspace())
+
+  # mengecek semua kata dimulai dengan huruf besar
+  print("apakah semua kata dimulai dengan huruf besar : ", data.istitle())
+
+  # mengecek komponen startswith endwith
+  cek_start = "Sangjangnim Oppa".startswith("Sangjangnim")
+  print("start = ", str(cek_start))
+
+  cek_end = "Sangjangnim Oppak".startswith("Oppak")
+  print("end = ", str(cek_end))
+
+  # mengulang string
+  print("data * 3 : ", data * 3)
+  print(14 * "wk")
+
+  # item paling kecil
+  print("Item paling kecil : ", min(data))
+
+  # item paling besar
+  print("Item paling besar : ", max(data))
+
+  # ascii
+  print("char untuk ascii 117 adalah ", chr(117))
+  print("ascii code untuk char t adalah ", str(ord("t")))
+
+  # count character
+  print("count char a : ", data.count("a"))
+
+  # join
+  print("join : ", " ".join(data))
+
+  # split
+  print("split : ", data.split(" "))
+
+  # rjust, ljust, center
+  print("rjust : ", "'" + data.rjust(21) + "'")
+
+  print("ljust : ", "'" + data.ljust(21) + "'")
+
+  print("center : ", "'" + data.center(21, "-") + "'")
+
+  # strip
+  print("strip : ", "'" + data.center(21, "-") + "'".strip(" "))
+
+
+def episodeFormatString():
+  # format string
+  # format string adalah cara untuk menggabungkan string dengan nilai dari variabel
+  # format string menggunakan karakter "{}"
+  # format string menggunakan method format()
+  # format string menggunakan f-string
+  nama = "ucup"
+  format_str = f"hello {nama}"
+  print(format_str)
+
+  # boolean
+  boolean = True
+  format_str = f"boolean = {boolean}"
+  print(format_str)
+
+  # angka
+  angka = 2005.5
+  format_str = f"angka = {angka}"
+  print(format_str)
+
+  # bilangan bulat
+  angka = 15
+  format_str = f"bilangan bulat = {angka:d}"
+  print(format_str)
+
+  # bilangan ribuan
+  angka = 2000
+  format_str = f"ribuan = {angka:,}"
+  print(format_str)
+
+  # bilangan desimal
+  angka = 2005.54321
+  format_str = f"desimal = {angka:.2f}"
+  print(format_str)
+
+  # menampilkan leading zero
+  angka = 2005.54321
+  format_str = f"leading zero = {angka:010.3f}"
+  print(format_str)
+
+  # menampilkan tanda minus atau pluss
+  angka_minus = -10
+  angka_plus = 10.1234
+  format_minus = f"tanda minus = {angka_minus:-d}"
+  format_plus = f"tanda plus = {angka_plus:+.2f}"
+  print(format_minus)
+  print(format_plus)
+
+  # persen
+  angka = 0.045
+  format_str = f"persen = {angka:.2%}"
+  print(format_str)
+
+  # operasi aritmatika di dalam placeholder
+  harga = 10000
+  jumlah = 5
+  format_str = f"harga = {harga} dan jumlah = {jumlah} maka total = Rp.{harga*jumlah:,.2f}"
+  print(format_str)
+
+  # format angka lain (binary, octal, hexadecimal)
+  angka = 255
+  format_str = f"binary = {bin(angka)}"
+  print(format_str)
+
+  format_str = f"octal = {oct(angka)}"
+  print(format_str)
+
+  format_str = f"hexadecimal = {hex(angka)}"
+  print(format_str)
+
 
 def main():
-  # print("Hello World")
+  print("Hello World")
   #print("\nEpisode Variable --> \n")
   #episodeVariable()
 
@@ -416,9 +686,21 @@ def main():
   #print("\nEpisode Operator Bitwise --> \n")
   #episodeOperatorBitwise()
 
-  print("\nEpisode Operator Assignment --> \n")
-  episodeOperatorAssignment()
+  #print("\nEpisode Operator Assignment --> \n")
+  #episodeOperatorAssignment()
 
+  #print("\nEpisode Pengenalan String --> \n")
+  #episodePengenalanString()
+
+  #print("\nEpisode Operasi dan manipulasi String --> \n")
+  #episodeOperasidanManipulasiString()
+  print("\nEpisode Format String --> \n")
+
+
+episodeFormatString()
+
+#print("\nNumpy --> \n")
+#bn.initNumpy()
 
 #reverse_data("Hello")
 
