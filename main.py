@@ -1,8 +1,18 @@
+from ctypes import sizeof
+
+
 def reverse_data(data):
   if len(data) <= 5:
     print(data[::-1])
   else:
     print(data)
+
+
+def fibo(n):
+  a, b = 0, 1
+  for _ in range(n):
+    yield a
+    a, b = b, a + b
 
 
 def tempCalculator():
@@ -654,8 +664,522 @@ def episodeFormatString():
   print(format_str)
 
 
+def episodeStringWidthAligment():
+  # data
+  data_nama = "Ucup Surucup"
+  data_umur = 17
+  data_tinggi = 150.1
+  data_no_sepatu = 44
+
+  # string standard
+  format_str = f"Nama : {data_nama}, umur : {data_umur}, tinggi : {data_tinggi}, no sepatu : {data_no_sepatu}"
+  print(5 * "=" + "Data String" + "=" * 5)
+  print(format_str)
+
+  # string multiline (mengunakan \n)
+  format_str = f"Nama : {data_nama}, \numur : {data_umur}, \ntinggi : {data_tinggi}, \nno sepatu : {data_no_sepatu}"
+  print("\n" + 5 * "=" + "Data String Multiline newline" + "=" * 5)
+  print(format_str)
+
+  # string multiline (mengunakan kutip 3 )
+  format_str = f"""
+  Nama           : {data_nama}
+  Nama Panggilan : {"Ucup":>20}
+  umur           : {data_umur:>20} 
+  tinggi         : {data_tinggi:>20} 
+  no sepatu      : {data_no_sepatu:>20}
+  """
+  print("\n" + 5 * "=" + "Data String Multiline kutip 3" + "=" * 5)
+  print(format_str)
+
+
+def episodeLatihanDateandTime():
+  # import library
+  import datetime as dt
+
+  # membuat objek datetime
+  now = dt.datetime.now()
+  print(now)
+
+  # hari ini
+  hari_ini = dt.date.today()
+  print(f"Hari ini : {hari_ini:%A}, tanggal : {hari_ini}")
+
+  # membuat objek datetime dari tahun, bulan, tanggal, jam, menit, detik
+  tgl_lahir = dt.date(1984, 2, 10)
+  print(f"Hari Lahir anda : {tgl_lahir:%A}, tanggal : {tgl_lahir}")
+
+  # menghitung umur
+  umur = hari_ini - tgl_lahir
+  umur_bulan_sisa = (umur.days % 365) // 30
+  umur_hari_sisa = (umur.days % 365) % 30
+  print(
+      f"Umur anda : {umur.days // 365} tahun {umur_bulan_sisa} bulan {umur_hari_sisa} hari"
+  )  # days untuk mengambil nilai daysnya, // untuk membagi tanpa sisa, 365 hari dalam 1 tahun
+
+
+def episodeIfAndElse():
+  # if adalah percabangan yang memiliki kondisi, jika kondisi terpenuhi maka akan menjalankan perintah if, jika tidak maka akan menjalankan perintah else
+  inputNama = input("Masukkan nama anda : ")
+
+  # 1. program if inline
+  if inputNama == "ucup": print("#1. Kamu Ganteng abiezzz\n")
+  #print(f"Terima Kasih {inputNama}\n")
+
+  # 2. program if indentation / menjorok ke dalem
+  if inputNama == "ucup":
+    print("#2. Kamu Ganteng abiezzz")
+    print("#2. Kamu juga keren banget !\n")
+
+  # 3. else statement
+  if inputNama == "ucup":
+    print("#3. Kamu Ganteng abiezzz\n")
+  else:
+    print("#3. Kamu bukan ucup, kamu ga ganteng !\n")
+
+  # 4. elif statement
+  if inputNama == "ucup":
+    print("#4. Kamu Ganteng abiezzz\n")
+  elif inputNama == "otong":
+    print("#4. Kamu sih keren\n")
+  elif inputNama == "ujang":
+    print("#4. Kamu biasa aja.\n")
+  else:
+    print("#4. Kamu siapa yah ?!\n")
+
+  print(f"Terima Kasih {inputNama}")
+
+
+def episodeLatihanIfElseCalculator():
+  try:
+    inputAngka1 = int(input("Masukkan angka pertama : "))
+    inputAngka2 = int(input("Masukkan angka kedua : "))
+
+    inputOperator = input("Masukkan operator : ")
+    if inputOperator == "+":
+      print(
+          f"Hasil dari {inputAngka1} + {inputAngka2} = {inputAngka1 + inputAngka2}"
+      )
+    elif inputOperator == "-":
+      print(
+          f"Hasil dari {inputAngka1} - {inputAngka2} = {inputAngka1 - inputAngka2}"
+      )
+    elif inputOperator == "*":
+      print(
+          f"Hasil dari {inputAngka1} * {inputAngka2} = {inputAngka1 * inputAngka2}"
+      )
+    elif inputOperator == "/":
+      print(
+          f"Hasil dari {inputAngka1} / {inputAngka2} = {inputAngka1 / inputAngka2}"
+      )
+    else:
+      print("Operator tidak valid")
+  except ValueError as e:
+    print(f"Error : {e}")
+
+
+def episodeForLoop():
+  # for loop adalah perulangan yang memiliki kondisi, jika kondisi terpenuhi maka akan menjalankan perintah for, jika tidak maka akan menjalankan perintah else
+  for i in range(1, 10):
+    print(i)
+  print("\n")
+
+  # for loop dengan list
+  list_buah = ["apel", "jeruk", "mangga"]
+  for buah in list_buah:
+    print(buah)
+  print("\n")
+
+  # for loop dengan string
+  for char in "ucup":
+    print(char)
+  print("\n")
+
+  # for loop dengan dictionary
+  dict_buah = {"apel": "merah", "jeruk": "kuning", "mangga": "hijau"}
+  for key, value in dict_buah.items():
+    print(f"Buah {key} warna {value}")
+
+  print("\n")
+
+
+def episodeWhileLoop():
+  # while loop adalah perulangan yang memiliki kondisi, jika kondisi terpenuhi maka akan menjalankan perintah while, jika tidak maka akan menjalankan perintah else
+  i = 1
+  while i < 10:
+    print(i)
+    i += 1
+  print("\n")
+
+  # while loop dengan list
+  list_buah = ["apel", "jeruk", "mangga"]
+  i = 0
+  while i < len(list_buah):
+    print(list_buah[i])
+    i += 1
+  print("\n")
+
+  # while loop dengan string
+  i = 0
+  while i < len("ucup"):
+    print("ucup"[i])
+    i += 1
+  print("\n")
+
+  # while loop dengan dictionary
+  dict_buah = {"apel": "merah", "jeruk": "kuning", "mangga": "hijau"}
+  list_buah = list(dict_buah)  # convert ke list dulu
+
+  i = 0
+  while i < len(list_buah):
+    print(f"Buah {list_buah[i]} warna {dict_buah[list_buah[i]]}")
+    i += 1
+  print("\n")
+
+  # while loop dengan continue or break
+  i = 0
+  while i < 10:
+    i += 1
+    if i == 3:
+      continue
+    print(i)
+    if i == 5:
+      break
+
+
+def episodeLatihanPerulangan():
+  # menggunakan for loop
+  for i in range(1, 6):
+    print("*" * i)
+
+  print("\n")
+  # menggunakan while
+  i = 0
+  while i < 5:
+    i += 1
+    print("*" * i)
+
+  print("\n")
+  # hanya ganjil
+  i = 0
+  while i < 5:
+    i += 1
+    if i % 2 == 0:
+      continue
+    print("*" * i)
+
+  print("\n")
+  # hanya genap
+  i = 0
+  while i < 5:
+    i += 1
+    if i % 2 == 0:
+      print("*" * i)
+      continue
+  print("\n")
+
+  # latihan membuat segitiga
+  x = 1
+  limit = 9
+  spasi = int(limit / 2)
+  while True:
+
+    if (x % 2):
+      print((" " * spasi) + "*" * x)
+      spasi -= 1
+
+    x += 1
+    if x > limit:
+      break
+
+  print("\n")
+
+  # latihan membuat jajaran genjang
+  x = 1
+  limit = 10
+  while True:
+    print(" " * (limit - x) + "*" * limit + " " * (limit - x))
+    x += 1
+    if x > limit:
+      break
+
+  print("\n")
+
+  # latihan membuat ketupat
+  x = 1
+  limit = 10
+  spasi = int(limit / 2)
+  while True:
+
+    if x < limit and (x % 2):
+      print(" " * spasi + "*" * x)
+      spasi -= 1
+
+    if x > limit:
+      limit -= 1
+      if (limit % 2):
+        spasi += 1
+        print(" " * spasi + "+" * limit)
+
+    x += 1
+    if (limit == 1):
+      break
+
+
+def episodeList():
+  # list adalah sekumpulan data yang dapat diakses dengan index
+  # list adalah mutable
+  # list adalah ordered
+  # list adalah heterogenous
+  # list adalah dynamic
+
+  # membuat list
+  angka = [1, 3, 4, 3, 7, 4, 2, 2, 1, 6]
+  print(angka)
+
+  booleanList = [True, False, False]
+  print(booleanList)
+
+  campuranList = [1, "ucup", True]
+  print(campuranList)
+
+  list_buah = ["apel", "jeruk", "mangga"]
+  print(list_buah)
+
+  list_pake_for = [a for a in range(10)]
+  print(list_pake_for)
+
+  list_pake_forKuadrat = [a**2 for a in range(10)]
+  print(list_pake_forKuadrat)
+
+  list_pake_for_if = [a for a in range(10) if a % 2 == 0]
+  print(list_pake_for_if)
+
+  # mengakses list
+  print(list_buah[0])
+  print(list_buah[1])
+
+  # operasi dalam list
+  # cek total jumlah list
+  panjang_data = len(list_buah)
+  print(f"panjang data : {panjang_data}")
+
+  # menambahkan data ke list
+  list_buah.append("semangka")
+  print(list_buah)
+
+  # mensisipkan data ke list
+  list_buah.insert(1, "durian")  # sisipkan data ke list
+  print(list_buah)
+
+  # mengupdate data di list
+  list_buah[4] = "semongko"
+
+  # menghapus data dari list
+  list_buah.remove("durian")  # hapus data dari list
+  print(list_buah)
+
+  # menggabungkan list dengan list
+  list_buah_baru = ["duku", "salak", "manggis"]
+  list_buah.extend(list_buah_baru)
+  print(list_buah)
+
+  # meremove data by index
+  list_buah.pop(0)
+  print(list_buah)
+
+  # count data
+  print(angka.count(2))
+
+  # sort data
+  angka.sort()
+  print(angka)
+
+  # reverse data
+  angka.reverse()
+  print(angka)
+
+  # copy data
+  list_buah_x = list_buah  # pass by reference / bukan duplicate list
+  # addressnya sama
+  print("Address sama --> \n")
+  print(hex(id(list_buah_x)))
+  print(hex(id(list_buah)))
+  print("\n")
+
+  list_buah_copy = list_buah.copy()
+  # addressnya beda nih
+  print("Address beda --> \n")
+  print(hex(id(list_buah_copy)))
+  print(hex(id(list_buah)))
+
+  # nested list / list dalam list
+  data_list_biasa = [1, 2, 3, 4]
+  print(f"list biasa = {data_list_biasa}")
+
+  data_0 = [1, 2]
+  data_1 = [3, 4, 5]
+
+  data_list_2d = [data_0, data_1, data_list_biasa]
+  print(f"list 2D = {data_list_2d}")
+
+  # penggunaan nested list
+  peserta_0 = ["ucup", 25, "pria"]
+  peserta_1 = ["otong", 27, "pria"]
+  peserta_2 = ["dewi", 30, "wanita"]
+  list_peserta = [peserta_0, peserta_1, peserta_2]
+  print(f"list peserta = {list_peserta}")
+
+  # mengakses data dalam nested list
+  for peserta in list_peserta:
+    print(f"nama peserta = {peserta[0]}")
+    print(f"umur peserta = {peserta[1]}")
+    print(f"gender peserta = {peserta[2]}\n")
+
+  # mengambi data tanpa loop
+  print(f"nama peserta = {list_peserta[0][0]}")
+
+  # nested list gak bisa di copy langsung, contohs :
+  list_peserta_copy = list_peserta.copy()
+  print(f"list peserta sebelum di update = {list_peserta}")
+  peserta_0[0] = 'michael'
+  print(f"list peserta setelah di update = {list_peserta}")
+  print(
+      f"list peserta copy setelah yg awal di update, mo KERUBAH juga = {list_peserta_copy}"
+  )
+
+  print("\n")
+  # gunakan deep copy, untuk nested list
+  from copy import deepcopy
+  peserta_0 = ["ucup", 25, "pria"]
+  peserta_1 = ["otong", 27, "pria"]
+  peserta_2 = ["dewi", 30, "wanita"]
+  list_peserta = [peserta_0, peserta_1, peserta_2]
+
+  list_peserta_copy = deepcopy(list_peserta)
+  print(f"list peserta sebelum di update = {list_peserta}")
+
+  peserta_0[0] = 'michael'
+
+  print(f"list peserta setelah di update = {list_peserta}")
+  print(
+      f"list peserta copy setelah yg awal di update, GAK ikut kerubah = {list_peserta_copy}"
+  )
+
+  print("\n")
+  # looping dari list
+  # for loop
+  for a in angka:
+    print(a)
+  print("\n")
+  # for loop dan range
+  for a in range(len(angka)):
+    print(angka[a])
+
+  print("\n")
+  # while 
+  i = 0
+  while i < len(angka):
+    print(angka[i])
+    i += 1
+    
+  print("\n")
+  # list comprehension
+  angka_list = [a for a in angka]
+  print(angka_list)
+  print("\n")
+
+  # looping dari list dengan enumerate
+  for i, a in enumerate(angka):
+    print(f"index = {i}, angka = {a}")
+
+  print("\n")
+  print([(i, x) for i, x in enumerate(range(10))])
+
+def episodeTuplesAndSet() :
+  # tuple adalah sekumpulan data yang dapat diakses dengan index
+  # tuple adalah immutable / tidak bisa diubah
+  # tuple adalah ordered
+  # tuple adalah heterogenous
+  # tuple adalah dynamic
+  
+
+  # membuat tuple
+  angka = (1, 3, 4, 3, 7, 4, 2, 2, 1, 6)
+  print(angka)
+
+  booleanTuple = (True, False, False)
+  print(booleanTuple)
+
+  campuranTuple = (1, "ucup", True)
+  print(campuranTuple)
+
+  tuple_buah = ("apel", "jeruk", "mangga")
+  print(tuple_buah)
+  print(tuple_buah[1])
+
+  #tuple_buah[0] = "semangka" # error, karena immutable
+
+  # set (himpunan)
+  # set mirip list tapi tidak punya index
+  data_sets = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+  print(data_sets)
+  #print(data_sets[1]) # error, karena tidak punya index
+
+def episodeDictionary() :
+  # dictionary adalah sekumpulan data yang dapat diakses dengan key
+  # dictionary adalah mutable
+  # dictionary adalah ordered
+  # dictionary adalah heterogenous
+  # dictionary adalah dynamic
+  # membuat dictionary
+  dict_buah = {
+    "apel": "merah", 
+    "jeruk": "kuning",
+    "mangga": "hijau",
+    "nmbr": 100,
+    "bln": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  }
+  print(dict_buah)
+  data_jeruk = dict_buah["jeruk"]
+  print(data_jeruk)
+  print(dict_buah["nmbr"])
+  print(dict_buah["bln"])
+  # operasi dalam dictionary
+  # cek total jumlah dictionary
+  panjang_data = len(dict_buah)
+  print(f"panjang data : {panjang_data}")
+  # menambahkan data ke dictionary
+  dict_buah["semangkat"] = "hijau"
+  print(dict_buah,"\n")
+  # mengupdate data, tapi klo key ga ada otomatis ditambah
+  dict_buah.update({"semangka": "ungu"})
+  print(dict_buah, "\n")
+  
+  # mengupdate data di dictionary, klo key tdk ditemukan maka error
+  dict_buah["jeruk"] = "merah"
+  print(dict_buah, "\n")
+  # menghapus data dari dictionary
+  dict_buah.pop("semangka")
+  print(dict_buah)
+
+  # cara lain hapus data di dictionary
+  del dict_buah["nmbr"]
+  print(dict_buah)
+
+  # mengecek key
+  ischeck = "jeruk" in dict_buah
+  print(ischeck)
+
+  # mengambil data dari dictionary
+  print(dict_buah.get("semangka","key not found"))
+  
+
+
 def main():
   print("Hello World")
+  #print(f"fibonanci : {list(fibo(10))}")
+  
   #print("\nEpisode Variable --> \n")
   #episodeVariable()
 
@@ -694,15 +1218,49 @@ def main():
 
   #print("\nEpisode Operasi dan manipulasi String --> \n")
   #episodeOperasidanManipulasiString()
-  print("\nEpisode Format String --> \n")
+
+  #print("\nEpisode Format String --> \n")
+  #episodeFormatString()
+
+  #print("\nEpisode String Width and Alignment --> \n")
+  #episodeStringWidthAligment()
+
+  #print("\nEpisode Latihan Date and Time --> \n")
+  #episodeLatihanDateandTime()
+
+  #print("\nEpisode IF and Else --> \n")
+  #episodeIfAndElse()
+
+  #print("\nEpisode Latihan IfElse Calculator --> \n")
+  #episodeLatihanIfElseCalculator()
+
+  #print("\nEpisode For Loop / Perulangan --> \n")
+  #episodeForLoop()
+
+  #print("\nEpisode while Loop / Perulangan --> \n")
+  #episodeWhileLoop()
+
+  #print("\nEpisode Latihan Perulangan --> \n")
+  #episodeLatihanPerulangan()
+
+  #print("\nEpisode List --> \n")
+  #episodeList()
+  
+  #print("\nEpisode Tuples dan Set --> \n")
+  #episodeTuplesAndSet()
+
+  print("\nEpisode Dictionary --> \n")
+  episodeDictionary()
 
 
-episodeFormatString()
+  #print("\nNumpy --> \n")
+  #bn.initNumpy()
 
-#print("\nNumpy --> \n")
-#bn.initNumpy()
+  #reverse_data("Hello")
 
-#reverse_data("Hello")
+  #import belajar_algotrading as ba
+  #print("\nAlgo trading --> \n")
+  #ba.initAlgo()
 
 if __name__ == "__main__":
   main()
