@@ -1077,12 +1077,12 @@ def episodeList():
     print(angka[a])
 
   print("\n")
-  # while 
+  # while
   i = 0
   while i < len(angka):
     print(angka[i])
     i += 1
-    
+
   print("\n")
   # list comprehension
   angka_list = [a for a in angka]
@@ -1096,13 +1096,13 @@ def episodeList():
   print("\n")
   print([(i, x) for i, x in enumerate(range(10))])
 
-def episodeTuplesAndSet() :
+
+def episodeTuplesAndSet():
   # tuple adalah sekumpulan data yang dapat diakses dengan index
   # tuple adalah immutable / tidak bisa diubah
   # tuple adalah ordered
   # tuple adalah heterogenous
   # tuple adalah dynamic
-  
 
   # membuat tuple
   angka = (1, 3, 4, 3, 7, 4, 2, 2, 1, 6)
@@ -1126,7 +1126,9 @@ def episodeTuplesAndSet() :
   print(data_sets)
   #print(data_sets[1]) # error, karena tidak punya index
 
-def episodeDictionary() :
+
+def episodeDictionary():
+  from copy import deepcopy
   # dictionary adalah sekumpulan data yang dapat diakses dengan key
   # dictionary adalah mutable
   # dictionary adalah ordered
@@ -1134,11 +1136,11 @@ def episodeDictionary() :
   # dictionary adalah dynamic
   # membuat dictionary
   dict_buah = {
-    "apel": "merah", 
-    "jeruk": "kuning",
-    "mangga": "hijau",
-    "nmbr": 100,
-    "bln": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "apel": "merah",
+      "jeruk": "kuning",
+      "mangga": "hijau",
+      "nmbr": 100,
+      "bln": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   }
   print(dict_buah)
   data_jeruk = dict_buah["jeruk"]
@@ -1151,19 +1153,16 @@ def episodeDictionary() :
   print(f"panjang data : {panjang_data}")
   # menambahkan data ke dictionary
   dict_buah["semangkat"] = "hijau"
-  print(dict_buah,"\n")
+  print(dict_buah, "\n")
   # mengupdate data, tapi klo key ga ada otomatis ditambah
   dict_buah.update({"semangka": "ungu"})
   print(dict_buah, "\n")
-  
+
   # mengupdate data di dictionary, klo key tdk ditemukan maka error
   dict_buah["jeruk"] = "merah"
   print(dict_buah, "\n")
-  # menghapus data dari dictionary
-  dict_buah.pop("semangka")
-  print(dict_buah)
 
-  # cara lain hapus data di dictionary
+  # hapus data di dictionary
   del dict_buah["nmbr"]
   print(dict_buah)
 
@@ -1172,14 +1171,152 @@ def episodeDictionary() :
   print(ischeck)
 
   # mengambil data dari dictionary
-  print(dict_buah.get("semangka","key not found"))
-  
+  print(dict_buah.get("semangka", "key not found"))
+
+  # looping dari dictionary
+  # default akan ambil key aja
+  for key in dict_buah:
+    print(key)
+
+  print("\n")
+  # ambil keysnya
+  for key in dict_buah.keys():
+    print(dict_buah.get(key))
+
+  print("\n")
+  # ambil valuesnya
+  for value in dict_buah.values():
+    print(value)
+
+  print("\n")
+  # ambil keysnya dan valuesnya
+  for key, value in dict_buah.items():
+    print(f"key = {key}, value = {value}")
+
+  print("\n")
+  # copy dan pop dictionary
+  dict_buah_copy = dict_buah.copy()
+  print(dict_buah_copy)
+
+  # pop itu mentransfer value ke variable / ambil berdasarkan key
+  semongko = dict_buah_copy.pop("semangkat")
+  print(f"pop = {semongko}")
+  print(dict_buah_copy)
+
+  # popitem / ambil yg terakhir
+  dataTerakhir = dict_buah.popitem()
+  print(f"popitem : {dataTerakhir}")
+
+  # Nesting dictionary
+  print("\nNesting Dictionary\n")
+  dict_buah_baru = {
+      "apel": {
+          "warna": "merah",
+          "harga": "10000",
+          "stok": 10
+      },
+      "jeruk": {
+          "warna": "kuning",
+          "harga": "20000",
+          "stok": 20
+      },
+      "mangga": {
+          "warna": "hijau",
+          "harga": "30000",
+          "stok": 30
+      }
+  }
+  print(dict_buah_baru)
+  # mengakses data dalam nested dictionary
+  print(dict_buah_baru["apel"]["harga"])
+  print("\n")
+  # looping dari dictionary
+  for key in dict_buah_baru:
+    print(key)
+  print("\n")
+  for key in dict_buah_baru.keys():
+    print(dict_buah_baru.get(key))
+
+  print("\n")
+  for value in dict_buah_baru.values():
+    print(value)
+  print("\n")
+  for key, value in dict_buah_baru.items():
+    print(f"key = {key}, value = {value}")
+
+  print("\n")
+  # copy dan pop dictionary
+  #dict_buah_baru_copy = dict_buah_baru.copy()
+  #print(dict_buah_baru_copy)
+  #dict_buah_baru_copy['apel']['harga'] = '15000'
+  #print(dict_buah_baru_copy)
+  #print(dict_buah_baru)
+
+  # deepcopy
+  dict_buah_baru_copy2 = deepcopy(dict_buah_baru)
+  dict_buah_baru_copy2['apel']['harga'] = '15000'
+  print(dict_buah_baru_copy2)
+  print(dict_buah_baru)
+
+  # fromkeys / mengambil key dan value dibuat none, untuk membuat template
+  import os
+  import string
+  import random
+  # hapus output yg lama
+
+  data_mahasiswa = {}
+  while True:
+    os.system("clear")
+    mahasiswa_template = {'nama': 'nama', 'nim': 00000, 'sks_lulus': 0}
+
+    mahasiswa = dict.fromkeys(mahasiswa_template.keys())
+    #print(mahasiswa)
+    mahasiswa['nama'] = input("Masukan nama mahasiswa :")
+    mahasiswa['nim'] = input("Masukan NIM mahasiswa :")
+    mahasiswa['sks_lulus'] = int(input("Masukan sks lulus mahasiswa :"))
+    KEY = ''.join(random.choice(string.ascii_uppercase) for i in range(6))
+    data_mahasiswa.update({KEY: mahasiswa})
+    for key, val in data_mahasiswa.items():
+      print(f"key = {key} - value = {val}")
+
+    lanjut = input("lanjut (y/n) :")
+    if lanjut == 'n':
+      break
+
+
+def episodeFungsi():
+  # fungsi adalah kumpulan dari beberapa statement yang dapat dijalankan
+  # fungsi adalah block code
+
+  # fungsi tanpa parameter
+  def fungsi_tanpa_parameter():
+    print("ini fungsi tanpa parameter")
+
+  fungsi_tanpa_parameter()
+
+  # fungsi dengan parameter
+  def fungsi_dengan_parameter(nama):
+    print(f"ini fungsi dengan parameter, nama = {nama}")
+
+  fungsi_dengan_parameter("ucup")
+
+  # fungsi dengan return
+  def fungsi_dengan_return(nama):
+    return f"ini fungsi dengan return, nama = {nama}"
+
+  print(fungsi_dengan_return("ucup"))
+
+  # fungsi dengan parameter dan return
+  def fungsi_dengan_parameter_dan_return(nama):
+    return f"ini fungsi dengan parameter dan return, nama = {nama}"
+
+  print(fungsi_dengan_parameter_dan_return("ucup"))
 
 
 def main():
   print("Hello World")
   #print(f"fibonanci : {list(fibo(10))}")
-  
+
   #print("\nEpisode Variable --> \n")
   #episodeVariable()
 
@@ -1245,13 +1382,15 @@ def main():
 
   #print("\nEpisode List --> \n")
   #episodeList()
-  
+
   #print("\nEpisode Tuples dan Set --> \n")
   #episodeTuplesAndSet()
 
-  print("\nEpisode Dictionary --> \n")
-  episodeDictionary()
+  #print("\nEpisode Dictionary --> \n")
+  #episodeDictionary()
 
+  print("\nEpisode Fungsi --> \n")
+  episodeFungsi()
 
   #print("\nNumpy --> \n")
   #bn.initNumpy()
@@ -1261,6 +1400,7 @@ def main():
   #import belajar_algotrading as ba
   #print("\nAlgo trading --> \n")
   #ba.initAlgo()
+
 
 if __name__ == "__main__":
   main()
