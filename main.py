@@ -1285,6 +1285,7 @@ def episodeDictionary():
 
 
 def episodeFungsi():
+
   # fungsi adalah kumpulan dari beberapa statement yang dapat dijalankan
   # fungsi adalah block code
 
@@ -1311,6 +1312,65 @@ def episodeFungsi():
     return f"ini fungsi dengan parameter dan return, nama = {nama}"
 
   print(fungsi_dengan_parameter_dan_return("ucup"))
+
+  # fungsi dengan defalt parameter
+  def fungsi_dengan_defalt_parameter(nama="ucup", pesan="Hello"):
+    return f"ini fungsi dengan defalt parameter, {pesan} {nama}"
+
+  print(fungsi_dengan_defalt_parameter(nama="otong", pesan="Apa kabar?"))
+
+  # fungsi dengan type hints
+  def fungsi_dengan_type_hints(nama: str, umur: int = 25):
+    return f"ini fungsi dengan type hints, {nama}, umur : {umur}"
+
+  print(fungsi_dengan_type_hints(nama="otong", umur=40))
+
+  # fungsi dengan *args
+  def fungsi_dengan_args(*args):
+    output = 0
+    for angka in args:
+      output += angka
+
+    print(f"hasil {output}")
+
+  fungsi_dengan_args(1, 2, 3, 4, 5)
+
+  # fungsi dengan **kwargs
+  def fungsi_dengan_kwargs(**kwargs):
+    print(
+        f"ini fungsi dengan kwargs, nama = {kwargs['nama']}, umur = {kwargs['umur']}"
+    )
+
+  fungsi_dengan_kwargs(nama="otong", umur=40)
+
+  # fungsi dengan *args dan **kwargs
+  def fungsi_dengan_args_kwargs(*args, **kwargs):
+    print(
+        f"ini fungsi dengan args dan kwargs, {args} , option = {kwargs['option']}"
+    )
+    if kwargs['option'] == 'tambah':
+      output = 0
+      for angka in args:
+        output += angka
+      print(f"hasil = {output}")
+    elif kwargs['option'] == 'kali':
+      output = 1
+      for angka in args:
+        output *= angka
+      print(f"hasil = {output}")
+
+  fungsi_dengan_args_kwargs(1, 2, 3, 4, 5, option="tambah")
+
+
+def episodeAnonymousAndLambda():
+  # Lambda Function
+  # lambda function adalah fungsi tanpa nama
+  # output = lambda argument: expression
+  kuadrat = lambda angka: angka**2
+  print(kuadrat(3))
+
+  pangkat = lambda num, pow: num**pow
+  print(pangkat(3, 3))
 
 
 def main():
@@ -1389,8 +1449,11 @@ def main():
   #print("\nEpisode Dictionary --> \n")
   #episodeDictionary()
 
-  print("\nEpisode Fungsi --> \n")
-  episodeFungsi()
+  #print("\nEpisode Fungsi --> \n")
+  #episodeFungsi()
+
+  print("\nEpisode Anonymous dan Lambda Function --> \n")
+  episodeAnonymousAndLambda()
 
   #print("\nNumpy --> \n")
   #bn.initNumpy()
